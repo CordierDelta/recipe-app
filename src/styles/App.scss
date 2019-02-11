@@ -1,0 +1,22 @@
+html,
+body {
+  background: #c4c4c5;
+  color: #0c1013;
+  // font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.2;
+
+  @media (max-width: 420px) {
+    font-size: 14px;
+  }
+}
+
+h1 {
+  font-size: 4em;
+  font-weight: 900;
+}
+
+.header__div {
+  background: #ec5e2c
+}
