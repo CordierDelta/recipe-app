@@ -4,7 +4,19 @@ import RecipeList from "./RecipeList";
 import RecipeDetail from "./RecipeDetail";
 import { Router, Link } from "@reach/router";
 
+import axios from "axios";
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      specials: []
+    };
+  }
+  componentDidMount() {
+    axios
+      .get(`http://localhost:3001/specials`)
+      .then(rsp => this.setState({ specials: rsp.data }));
+  }
   render() {
     return (
       <div className="App">
@@ -13,9 +25,10 @@ class App extends Component {
             Crescendo Kitchen
           </Link>
         </div>
+
         <Router>
           <RecipeList path="/" />
-          <RecipeDetail path="/recipe/:id" />
+          <RecipeDetail path="/recipe/:id" specials={this.state.specials} />
         </Router>
 
         <div className="footer__div mt-5">

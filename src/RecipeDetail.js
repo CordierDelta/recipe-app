@@ -1,6 +1,15 @@
 import React from "react";
 import { getSingleRecipe } from "./utils/api";
-import { Container, Row, Col } from "reactstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  CardImg,
+  CardBody,
+  CardTitle,
+  CardSubtitle
+} from "reactstrap";
 import Ingredients from "./Ingredients";
 import Directions from "./Directions";
 import "./RecipeDetail.scss";
@@ -41,18 +50,39 @@ class RecipeDetail extends React.Component {
         <Container>
           <Row>
             <Col md="6">
-              <Ingredients
-                name={this.state.name}
-                ingredients={this.state.ingredients}
-                prep={this.state.prepTime}
-                cook={this.state.cookTime}
-                img={this.state.img}
-                servings={this.state.servings}
-              />
+              <Card className="mb-4">
+                <CardBody>
+                  <CardTitle>
+                    <h1>{this.state.name}</h1>
+                  </CardTitle>
+                  <CardSubtitle>
+                    <span>Prep Time: {`${this.state.prepTime} mins`}</span>
+                    <br />
+                    <span>Cook Time: {`${this.state.cookTime} mins`}</span>
+                    <br />
+                    <span>Serves: {this.state.servings}</span>
+                  </CardSubtitle>
+                </CardBody>
+                <CardImg
+                  top
+                  width="100%"
+                  src={`http://localhost:3001${this.state.img}`}
+                  alt=""
+                />
+
+                <Ingredients
+                  ingredients={this.state.ingredients}
+                  specials={this.props.specials}
+                />
+              </Card>
             </Col>
 
             <Col md="6">
-              <Directions steps={this.state.directions} />
+              <Card>
+                <CardBody>
+                  <Directions steps={this.state.directions} />
+                </CardBody>
+              </Card>
             </Col>
           </Row>
         </Container>
