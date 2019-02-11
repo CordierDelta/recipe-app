@@ -5,12 +5,13 @@ import {
   CardText,
   CardBody,
   CardTitle,
-  CardSubtitle,
-  Button
+  CardSubtitle
 } from "reactstrap";
 import "./RecipeCard.scss";
+import { Link } from "@reach/router";
 
 const RecipeCard = props => {
+  const { id } = props;
   return (
     <div>
       <Card className="text-center mb-5">
@@ -25,10 +26,14 @@ const RecipeCard = props => {
           <CardSubtitle>
             <span>Prep Time: {`${props.prepTime} mins`}</span>
             <br />
+            <span>Cook Time: {`${props.cookTime} mins`}</span>
+            <br />
             <span>Serves: {props.servings}</span>
           </CardSubtitle>
           <CardText className="mt-3 mb-4">{props.description}</CardText>
-          <Button className="card__btn">Get Recipe</Button>
+          <Link to={`/recipe/${id}`} className="card__btn">
+            Get Recipe
+          </Link>
         </CardBody>
       </Card>
     </div>

@@ -10,9 +10,18 @@
 .card__btn {
   display: block;
   width: 80%;
-  padding: 10px;
+  background: darken(#c4c4c5, 10%);
+  color: #FFF;
   font-size: 1.5em;
   font-weight: 700;
+  padding: 10px;
+  border-radius: 5px;
   margin-right: auto;
   margin-left: auto;
+
+  &:hover{
+    text-decoration: none;
+    background: darken(#c4c4c5, 30%);
+    color: #FFF;
+  }
 } 
