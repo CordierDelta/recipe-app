@@ -1,7 +1,7 @@
 import React from "react";
-import { Container, Row, Col, CardDeck } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import RecipeCard from "./RecipeCard";
-import { getRecipes } from "./utils/api";
+import { getAllRecipes } from "./utils/api";
 
 class RecipeList extends React.Component {
   constructor(props) {
@@ -13,11 +13,17 @@ class RecipeList extends React.Component {
   }
 
   componentDidMount() {
-    getRecipes().then(rsp => this.setState({ recipes: rsp.data }));
+    //uses axios call from api.js
+    getAllRecipes()
+      .then(rsp => this.setState({ recipes: rsp.data }))
+      .catch(function(error) {
+        console.log(error);
+      });
   }
 
   render() {
     console.log(this.state.recipes);
+
     const recipes = this.state.recipes.map((recipe, i) => (
       <Col key={i} sm="6">
         <RecipeCard
@@ -25,15 +31,16 @@ class RecipeList extends React.Component {
           description={recipe.description}
           img={recipe.images.medium}
           prepTime={recipe.prepTime}
+          cookTime={recipe.cookTime}
           servings={recipe.servings}
+          id={recipe.uuid}
         />
       </Col>
     ));
+
     return (
       <Container>
-        <Row>
-          <CardDeck>{recipes}</CardDeck>
-        </Row>
+        <Row>{recipes}</Row>
       </Container>
     );
   }

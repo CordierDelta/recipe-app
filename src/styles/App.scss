@@ -12,11 +12,32 @@ body {
   }
 }
 
-h1 {
-  font-size: 4em;
-  font-weight: 900;
+
+
+a {
+  color: initial;
+
+  &:hover {
+    cursor: pointer;
+    color: initial;
+    text-decoration: none;
+  }
 }
 
 .header__div {
   background: #ec5e2c
+}
+
+.header__a {
+  font-size: 4em;
+  font-weight: 900; 
+}
+
+.footer__div{
+  background: #ec5e2c
+}
+
+.footer__a {
+  font-size: 1em;
+  font-weight: 900; 
 }
