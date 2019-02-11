@@ -13,11 +13,17 @@ class RecipeList extends React.Component {
   }
 
   componentDidMount() {
-    getAllRecipes().then(rsp => this.setState({ recipes: rsp.data }));
+    //uses axios call from api.js
+    getAllRecipes()
+      .then(rsp => this.setState({ recipes: rsp.data }))
+      .catch(function(error) {
+        console.log(error);
+      });
   }
 
   render() {
     console.log(this.state.recipes);
+
     const recipes = this.state.recipes.map((recipe, i) => (
       <Col key={i} sm="6">
         <RecipeCard
@@ -31,6 +37,7 @@ class RecipeList extends React.Component {
         />
       </Col>
     ));
+
     return (
       <Container>
         <Row>{recipes}</Row>
