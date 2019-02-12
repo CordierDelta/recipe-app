@@ -1,9 +1,9 @@
 # recipe-app
 a simple React app to demonstrate working with an api
 
-## TL;DR
-### `npm i`
-### `npm run start`
+### TL;DR
+`npm i`
+`npm start`
 
 api provided by (https://bitbucket.org/trillitech/frontend-api-skills-test/overview)
 and runs at [http://localhost:3001](http://localhost:3001).
