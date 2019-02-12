@@ -30,6 +30,12 @@ a {
   }
 }
 
+.router-wrapper {
+  //quick fix for flashing view change
+  //TODO: build loader component
+  min-height: 900px;
+}
+
 .header__div {
   background: #ec5e2c
 }

@@ -24,12 +24,12 @@ class App extends React.Component {
             Crescendo Kitchen
           </Link>
         </div>
-
-        <Router>
-          <RecipeList path="/" />
-          <RecipeDetail path="/recipe/:id" specials={this.state.specials} />
-        </Router>
-
+        <div className="router-wrapper">
+          <Router>
+            <RecipeList path="/" />
+            <RecipeDetail path="/recipe/:id" specials={this.state.specials} />
+          </Router>
+        </div>
         <div className="footer__div mt-5">
           <Link to="/" className="footer__a py-4  d-block text-center">
             © Crescendo Kitchen 2019
