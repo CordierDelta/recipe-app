@@ -45,42 +45,56 @@ class RecipeDetail extends React.Component {
   }
 
   render() {
+    const {
+      name,
+      img,
+      ingredients,
+      prepTime,
+      cookTime,
+      servings,
+      directions
+    } = this.state;
+
     return (
       <div>
         <Container>
           <Row>
+            {/* Recipe Ingredients and General Info */}
             <Col md="6">
               <Card className="mb-4">
                 <CardBody>
                   <CardTitle>
-                    <h1>{this.state.name}</h1>
+                    <h1>{name}</h1>
                   </CardTitle>
+
                   <CardSubtitle>
-                    <span>Prep Time: {`${this.state.prepTime} mins`}</span>
+                    <span>Prep Time: {`${prepTime} mins`}</span>
                     <br />
-                    <span>Cook Time: {`${this.state.cookTime} mins`}</span>
+                    <span>Cook Time: {`${cookTime} mins`}</span>
                     <br />
-                    <span>Serves: {this.state.servings}</span>
+                    <span>Serves: {servings}</span>
                   </CardSubtitle>
                 </CardBody>
+
                 <CardImg
                   top
                   width="100%"
-                  src={`http://localhost:3001${this.state.img}`}
-                  alt=""
+                  src={`http://localhost:3001${img}`}
+                  alt={name}
                 />
 
                 <Ingredients
-                  ingredients={this.state.ingredients}
+                  ingredients={ingredients}
                   specials={this.props.specials}
                 />
               </Card>
             </Col>
 
+            {/* Recipe Step by Step Directions */}
             <Col md="6">
               <Card>
                 <CardBody>
-                  <Directions steps={this.state.directions} />
+                  <Directions steps={directions} />
                 </CardBody>
               </Card>
             </Col>

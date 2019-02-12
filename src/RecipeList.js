@@ -22,10 +22,10 @@ class RecipeList extends React.Component {
   }
 
   render() {
-    console.log(this.state.recipes);
-
-    const recipes = this.state.recipes.map((recipe, i) => (
-      <Col key={i} sm="6">
+    //map recipes array to individual RecipeCard components
+    //id prop contains info for link to the RecipeDetail view
+    const recipes = this.state.recipes.map(recipe => (
+      <Col key={recipe.uuid} sm="6">
         <RecipeCard
           title={recipe.title}
           description={recipe.description}

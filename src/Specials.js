@@ -3,10 +3,11 @@ import "./Specials.scss";
 
 class Specials extends React.Component {
   render() {
+    const { specials, id } = this.props;
     return (
       <div>
-        {this.props.specials.map((item, i) => {
-          if (this.props.id === item.ingredientId) {
+        {specials.map((item, i) => {
+          if (id === item.ingredientId) {
             return (
               <div
                 key={i}
@@ -16,6 +17,7 @@ class Specials extends React.Component {
                 <span className="special__span--title">{item.title} : </span>
                 <span>{item.type.toUpperCase()}</span>
                 <br />
+
                 {/*helper function to strip html tags returned by api */}
                 <span>{item.text.replace(/(<([^>]+)>)/gi, "")}</span>
               </div>
