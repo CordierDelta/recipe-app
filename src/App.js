@@ -1,21 +1,20 @@
-import React, { Component } from "react";
-import "./styles/App.scss";
+import React from "react";
+import "./App.scss";
 import RecipeList from "./RecipeList";
 import RecipeDetail from "./RecipeDetail";
 import { Router, Link } from "@reach/router";
+import { getSpecials } from "./utils/api";
 
-import axios from "axios";
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       specials: []
     };
   }
+
   componentDidMount() {
-    axios
-      .get(`http://localhost:3001/specials`)
-      .then(rsp => this.setState({ specials: rsp.data }));
+    getSpecials().then(rsp => this.setState({ specials: rsp.data }));
   }
   render() {
     return (

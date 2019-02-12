@@ -12,7 +12,9 @@ import {
 } from "reactstrap";
 import Ingredients from "./Ingredients";
 import Directions from "./Directions";
+import { Link } from "@reach/router";
 import "./RecipeDetail.scss";
+import PropTypes from "prop-types";
 
 class RecipeDetail extends React.Component {
   constructor(props) {
@@ -45,42 +47,59 @@ class RecipeDetail extends React.Component {
   }
 
   render() {
+    const {
+      name,
+      img,
+      ingredients,
+      prepTime,
+      cookTime,
+      servings,
+      directions
+    } = this.state;
+
     return (
       <div>
         <Container>
+          <div className="mb-4 font-weight-bold">
+            <Link to="/">&larr; BACK</Link>
+          </div>
           <Row>
+            {/* Recipe Ingredients and General Info */}
             <Col md="6">
               <Card className="mb-4">
                 <CardBody>
                   <CardTitle>
-                    <h1>{this.state.name}</h1>
+                    <h1>{name}</h1>
                   </CardTitle>
+
                   <CardSubtitle>
-                    <span>Prep Time: {`${this.state.prepTime} mins`}</span>
+                    <span>Prep Time: {`${prepTime} mins`}</span>
                     <br />
-                    <span>Cook Time: {`${this.state.cookTime} mins`}</span>
+                    <span>Cook Time: {`${cookTime} mins`}</span>
                     <br />
-                    <span>Serves: {this.state.servings}</span>
+                    <span>Serves: {servings}</span>
                   </CardSubtitle>
                 </CardBody>
+
                 <CardImg
                   top
                   width="100%"
-                  src={`http://localhost:3001${this.state.img}`}
-                  alt=""
+                  src={`http://localhost:3001${img}`}
+                  alt={name}
                 />
 
                 <Ingredients
-                  ingredients={this.state.ingredients}
+                  ingredients={ingredients}
                   specials={this.props.specials}
                 />
               </Card>
             </Col>
 
+            {/* Recipe Step by Step Directions */}
             <Col md="6">
               <Card>
                 <CardBody>
-                  <Directions steps={this.state.directions} />
+                  <Directions steps={directions} />
                 </CardBody>
               </Card>
             </Col>
@@ -92,3 +111,8 @@ class RecipeDetail extends React.Component {
 }
 
 export default RecipeDetail;
+
+RecipeDetail.propTypes = {
+  specials: PropTypes.array,
+  id: PropTypes.string
+};

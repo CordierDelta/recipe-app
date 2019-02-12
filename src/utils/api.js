@@ -7,3 +7,7 @@ export function getAllRecipes() {
 export function getSingleRecipe(id) {
   return axios.get(`http://localhost:3001/recipes?uuid=${id}`);
 }
+
+export function getSpecials() {
+  return axios.get("http://localhost:3001/specials");
+}
