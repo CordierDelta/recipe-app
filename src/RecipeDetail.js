@@ -27,6 +27,7 @@ class RecipeDetail extends React.Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     //uses axios call from api.js
     getSingleRecipe(this.props.id)
       .then(rsp => {
