@@ -2,6 +2,7 @@
 a simple React app to demonstrate working with an api
 
 ### TL;DR
+clone or download repo
 `npm i`
 `npm start`
 
