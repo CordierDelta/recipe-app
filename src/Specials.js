@@ -1,5 +1,6 @@
 import React from "react";
 import "./Specials.scss";
+import PropTypes from "prop-types";
 
 class Specials extends React.Component {
   render() {
@@ -32,3 +33,8 @@ class Specials extends React.Component {
 }
 
 export default Specials;
+
+Specials.propTypes = {
+  id: PropTypes.string,
+  specials: PropTypes.array
+};

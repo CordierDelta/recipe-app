@@ -12,7 +12,9 @@ import {
 } from "reactstrap";
 import Ingredients from "./Ingredients";
 import Directions from "./Directions";
+import { Link } from "@reach/router";
 import "./RecipeDetail.scss";
+import PropTypes from "prop-types";
 
 class RecipeDetail extends React.Component {
   constructor(props) {
@@ -58,6 +60,9 @@ class RecipeDetail extends React.Component {
     return (
       <div>
         <Container>
+          <div className="mb-4 font-weight-bold">
+            <Link to="/">&larr; BACK</Link>
+          </div>
           <Row>
             {/* Recipe Ingredients and General Info */}
             <Col md="6">
@@ -106,3 +111,8 @@ class RecipeDetail extends React.Component {
 }
 
 export default RecipeDetail;
+
+RecipeDetail.propTypes = {
+  specials: PropTypes.array,
+  id: PropTypes.string
+};

@@ -1,6 +1,7 @@
 import React from "react";
 import Specials from "./Specials";
 import "./RecipeDetail.scss";
+import PropTypes from "prop-types";
 
 class Ingredients extends React.Component {
   render() {
@@ -29,3 +30,8 @@ class Ingredients extends React.Component {
 }
 
 export default Ingredients;
+
+Ingredients.propTypes = {
+  ingredients: PropTypes.array,
+  specials: PropTypes.array
+};

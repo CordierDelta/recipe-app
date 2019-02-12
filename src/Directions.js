@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class Directions extends React.Component {
   render() {
@@ -20,3 +21,7 @@ class Directions extends React.Component {
 }
 
 export default Directions;
+
+Directions.propTypes = {
+  steps: PropTypes.array
+};

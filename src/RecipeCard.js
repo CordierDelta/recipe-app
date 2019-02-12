@@ -9,6 +9,7 @@ import {
 } from "reactstrap";
 import "./RecipeCard.scss";
 import { Link } from "@reach/router";
+import PropTypes from "prop-types";
 
 const RecipeCard = props => {
   const { img, title, prepTime, cookTime, servings, id, description } = props;
@@ -45,3 +46,13 @@ const RecipeCard = props => {
 };
 
 export default RecipeCard;
+
+RecipeCard.propTypes = {
+  title: PropTypes.string,
+  img: PropTypes.string,
+  prepTime: PropTypes.number,
+  cookTime: PropTypes.number,
+  servings: PropTypes.number,
+  id: PropTypes.string,
+  description: PropTypes.string
+};
